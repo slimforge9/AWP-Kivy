@@ -1,0 +1,17 @@
+#: include kv/menu.kv
+#: include kv/kreator.kv
+#: include kv/person.kv
+
+GridLayout:
+    cols: 2
+    ScreenManager:
+        id: screen_manager
+        Menu:
+            name: "menu_screen"
+            id: menu_screen
+        Creator:
+            name: "kreator"
+            id: kreator
+        Person:
+            name: "person"
+            id: person

@@ -1,0 +1,130 @@
+<Person>
+    rows: 3
+
+    AnchorLayout:
+        anchor_y: 'top'
+
+        Label:
+            text: "Dane osoby"
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.6
+            size: (20,30)
+            background_color: (0, 0, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+    BoxLayout:
+        pos_hint: {"top": 1, "center_x": .5}
+        size_hint_x: 0.2
+        size_hint_y: 1.5
+        ScrollView:
+            size_hint_y: 1
+            pos_hint: {'x': 0, 'y': .11}
+            padding: 50
+            spacing: 50
+            do_scroll_x: False
+            do_scroll_y: True
+            GridLayout:
+                height: self.minimum_height  # required to size GridLayout
+                cols:2
+                size_hint_y: None
+                spacing: 30
+
+                #Imie
+                ItemLabel:
+                    text: "Imię"
+                TextInput:
+                    text: ""
+
+                #Nazwisko
+                ItemLabel:
+                    text: "Nazwisko"
+                TextInput:
+                    text: ""
+
+                ItemLabel:
+                    text: "Nazwisko\nRodowe"
+                TextInput:
+                    text: ""
+
+                #Imie Ojca
+                ItemLabel:
+                    text: "Imię Ojca"
+                TextInput:
+                    text: ""
+
+                #Imie Matki
+                ItemLabel:
+                    text: "Imię Matki"
+                TextInput:
+                    text: ""
+
+                #Nazwisko rodowe Matki
+                ItemLabel:
+                    text: "Nazwisko\nRodowe Matki"
+                TextInput:
+                    text: ""
+
+                #PESEL
+                ItemLabel:
+                    text: "PESEL"
+                TextInput:
+                    text: ""
+
+                # Miejsce urodzenia
+                ItemLabel:
+                    text: "Miejsce urodzenia"
+                TextInput:
+                    text: ""
+
+                # Miejsce zamieszkania
+                ItemLabel:
+                    text: "Miejsce\nzamieszkania"
+                TextInput:
+                    text: ""
+
+                # Zajęcie
+                ItemLabel:
+                    text: "Zajęcie"
+                TextInput:
+                    text: ""
+
+                # Dokument stwierdzający tożsamość
+                ItemLabel:
+                    text: "Dokument\nstwierdzający\ntożsamość"
+                TextInput:
+                    text: ""
+                ItemLabel:
+                    text: ""
+
+
+
+
+
+
+    BoxLayout:
+        Button:
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.5
+            size: (20,30)
+            text: 'Wstecz'
+            on_release:
+                app.change_screen("kreator")
+        Button:
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.5
+            size: (20,30)
+            text: 'Dalej'
+            on_release:
+                app.change_screen("person")
+
+
+

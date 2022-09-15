@@ -1,0 +1,40 @@
+<Menu>
+    FloatLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            #size: root.width, root.height
+            Label:
+                text: "Apka Wsparcia Patrolowca"
+                font_size: 20
+                pos: 0, 200
+                size_hint: 1, 0.5
+                size: (20,30)
+                background_color: (0, 0, 1, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+            Label:
+                text: ""
+            Label:
+                text: ""
+
+
+        Button:
+            text: "Kreator"
+            pos_hint: {"center_x": 0.5, "center_y": 0.635}
+            size_hint: 0.67, 0.097
+            on_release:
+                app.change_screen("kreator")
+
+        Button:
+            text: "Kompedium"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            size_hint: 0.67, 0.097
+
+        Button:
+            text: "About"
+            pos_hint: {"center_x": 0.5, "center_y":0.245}
+            size_hint: 0.67, 0.097

@@ -1,0 +1,212 @@
+<ItemLabel@Label>
+    font_size: '14sp'
+    halign: 'left'
+    valign: 'middle'
+    size: '50sp', '30sp'
+    size_hint: 1, None
+    # text_size: self.size
+    #size_hint_x: .80
+<Creator>
+    rows: 3
+
+    AnchorLayout:
+        anchor_y: 'top'
+
+        Label:
+            text: "Kreator"
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.6
+            size: (20,30)
+            background_color: (0, 0, 1, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        Label:
+            text: "Wybierz dokumenty do sporządzenia"
+            pos_hint: None, None
+            pos: 20, 2
+
+    BoxLayout:
+        pos_hint: {"top": 1, "center_x": .5}
+        size_hint_x: 0.2
+        size_hint_y: 1.5
+        ScrollView:
+            size: (root.width, root.height)
+            size_hint_y: 1
+            pos_hint: {'x': 0, 'y': .11}
+            padding: 50
+            spacing: 50
+            do_scroll_x: False
+            do_scroll_y: True
+            GridLayout:
+                height: self.minimum_height  # required to size GridLayout
+                cols:4
+                size_hint_y: None
+                spacing: 30
+                ItemLabel:
+                # Detain
+                    text: ""
+                ItemLabel:
+                    text: "Protokół\nzatrzymania osoby"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_detain(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Detain Rights
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: " Pouczenia\n dla zatrzymanego kk"
+                CheckBox:
+                    on_active: root.checkbox_rights(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Sober
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Protokół\nbadania trzeźwości"
+                CheckBox:
+                    on_active: root.checkbox_sober(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # 79
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Notatka 79\ndoprowadzenie"
+                CheckBox:
+                    on_active: root.checkbox_79(self, self.active)
+                    size_hint_x: .20
+                ItemLabel:
+                    text: ""
+
+                # Nakaz przyjęcia
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Notatka przyjęcia\nzwolnienia"
+                CheckBox:
+                    on_active: root.checkbox_przyjecie(self, self.active)
+                    size_hint_x: .20
+                ItemLabel:
+                    text: ""
+
+                # Notatka z ujawnienia wykroczenia
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Notatka \nz ujawnienia\nwykroczenia"
+                CheckBox:
+                    on_active: root.checkbox_notka_wykroczenie(self, self.active)
+                    size_hint_x: .20
+                ItemLabel:
+                    text: ""
+
+                # Rozliczenie IW
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Notatka \nrozliczenie IW"
+                CheckBox:
+                    on_active: root.checkbox_iw(self, self.active)
+                    size_hint_x: .20
+                ItemLabel:
+                    text: ""
+
+                # Pzerwa w konwoju
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Przerwa w konwoju"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_przerwa_konwoj(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Poświadczenie pod opiekę nielata
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Poświadczenie\npod opiekę nielata"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_posw_nielat(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Zlecenie na badania
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Zlecenie na badania"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_zlec_badanie(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Kradzież - rejestracja
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Kradzież\nrejestracja KSIP"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_kradziez_rej(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Pouczenia - wykroczenia
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Pouczenia\n- wykroczenia"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_wykr_pouczenia(self, self.active)
+                ItemLabel:
+                    text: ""
+
+                # Notatka UMP
+                ItemLabel:
+                    text: ""
+                ItemLabel:
+                    text: "Notatka UMP"
+                CheckBox:
+                    halign: 'right'
+                    on_active: root.checkbox_ump(self, self.active)
+                ItemLabel:
+                    text: ""
+
+
+    BoxLayout:
+        Button:
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.5
+            size: (20,30)
+            text: 'Wstecz'
+            on_release:
+                app.change_screen("menu_screen")
+        Button:
+            font_size: 20
+            pos: 0, 200
+            size_hint: 1, 0.5
+            size: (20,30)
+            text: 'Dalej'
+            on_release:
+                app.change_screen("person")
+
+
+

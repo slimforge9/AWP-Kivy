@@ -55,7 +55,7 @@
                     text: "Protokół\nzatrzymania osoby"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_detain(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='1_detain')
                 ItemLabel:
                     text: ""
 
@@ -65,7 +65,7 @@
                 ItemLabel:
                     text: " Pouczenia\n dla zatrzymanego kk"
                 CheckBox:
-                    on_active: root.checkbox_rights(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='2_pouczenia')
                 ItemLabel:
                     text: ""
 
@@ -75,7 +75,7 @@
                 ItemLabel:
                     text: "Protokół\nbadania trzeźwości"
                 CheckBox:
-                    on_active: root.checkbox_sober(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='3_sober')
                 ItemLabel:
                     text: ""
 
@@ -85,7 +85,7 @@
                 ItemLabel:
                     text: "Notatka 79\ndoprowadzenie"
                 CheckBox:
-                    on_active: root.checkbox_79(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='4_79')
                     size_hint_x: .20
                 ItemLabel:
                     text: ""
@@ -94,9 +94,9 @@
                 ItemLabel:
                     text: ""
                 ItemLabel:
-                    text: "Notatka przyjęcia\nzwolnienia"
+                    text: "Nakaz przyjęcia\nzwolnienia"
                 CheckBox:
-                    on_active: root.checkbox_przyjecie(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='5_nakaz')
                     size_hint_x: .20
                 ItemLabel:
                     text: ""
@@ -107,7 +107,7 @@
                 ItemLabel:
                     text: "Notatka \nz ujawnienia\nwykroczenia"
                 CheckBox:
-                    on_active: root.checkbox_notka_wykroczenie(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='6_wykr')
                     size_hint_x: .20
                 ItemLabel:
                     text: ""
@@ -118,7 +118,7 @@
                 ItemLabel:
                     text: "Notatka \nrozliczenie IW"
                 CheckBox:
-                    on_active: root.checkbox_iw(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='7_po_iw')
                     size_hint_x: .20
                 ItemLabel:
                     text: ""
@@ -130,7 +130,7 @@
                     text: "Przerwa w konwoju"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_przerwa_konwoj(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='8_konw_break')
                 ItemLabel:
                     text: ""
 
@@ -141,7 +141,7 @@
                     text: "Poświadczenie\npod opiekę nielata"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_posw_nielat(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='9_posw_nielat')
                 ItemLabel:
                     text: ""
 
@@ -152,7 +152,7 @@
                     text: "Zlecenie na badania"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_zlec_badanie(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='10_zlec_lek')
                 ItemLabel:
                     text: ""
 
@@ -163,7 +163,7 @@
                     text: "Kradzież\nrejestracja KSIP"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_kradziez_rej(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='11_rej_119')
                 ItemLabel:
                     text: ""
 
@@ -174,7 +174,7 @@
                     text: "Pouczenia\n- wykroczenia"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_wykr_pouczenia(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='12_wykr_rights')
                 ItemLabel:
                     text: ""
 
@@ -185,7 +185,7 @@
                     text: "Notatka UMP"
                 CheckBox:
                     halign: 'right'
-                    on_active: root.checkbox_ump(self, self.active)
+                    on_active: root.checkbox_handle(self, self.active, name='13_ump')
                 ItemLabel:
                     text: ""
 
@@ -199,6 +199,7 @@
             text: 'Wstecz'
             on_release:
                 app.change_screen("menu_screen")
+                root.manager.transition.direction = 'right'
         Button:
             font_size: 20
             pos: 0, 200
@@ -207,6 +208,7 @@
             text: 'Dalej'
             on_release:
                 app.change_screen("person")
+                root.manager.transition.direction = 'left'
 
 
 

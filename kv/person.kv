@@ -1,4 +1,5 @@
 <Person>
+    container: container
     rows: 3
 
     AnchorLayout:
@@ -31,74 +32,87 @@
             do_scroll_x: False
             do_scroll_y: True
             GridLayout:
+                id: container
                 height: self.minimum_height  # required to size GridLayout
                 cols:2
                 size_hint_y: None
                 spacing: 30
+                imie: imie
 
                 #Imie
                 ItemLabel:
                     text: "Imię"
                 TextInput:
+                    id: imie
                     text: ""
 
                 #Nazwisko
                 ItemLabel:
                     text: "Nazwisko"
                 TextInput:
+                    id: nazwisko
                     text: ""
 
                 ItemLabel:
                     text: "Nazwisko\nRodowe"
                 TextInput:
+                    id: rodowe
                     text: ""
 
                 #Imie Ojca
                 ItemLabel:
                     text: "Imię Ojca"
                 TextInput:
+                    id: ojciec
                     text: ""
 
                 #Imie Matki
                 ItemLabel:
                     text: "Imię Matki"
                 TextInput:
+                    id: matka
                     text: ""
 
                 #Nazwisko rodowe Matki
                 ItemLabel:
                     text: "Nazwisko\nRodowe Matki"
                 TextInput:
+                    id: rod_matka
                     text: ""
 
                 #PESEL
                 ItemLabel:
                     text: "PESEL"
                 TextInput:
+                    id: pesel
                     text: ""
 
                 # Miejsce urodzenia
                 ItemLabel:
                     text: "Miejsce urodzenia"
                 TextInput:
+                    id: msc_ur
                     text: ""
 
                 # Miejsce zamieszkania
                 ItemLabel:
                     text: "Miejsce\nzamieszkania"
                 TextInput:
+                    id: zam
                     text: ""
 
                 # Zajęcie
                 ItemLabel:
                     text: "Zajęcie"
                 TextInput:
+                    id: job
                     text: ""
 
                 # Dokument stwierdzający tożsamość
                 ItemLabel:
                     text: "Dokument\nstwierdzający\ntożsamość"
                 TextInput:
+                    id: dok
                     text: ""
                 ItemLabel:
                     text: ""
@@ -117,6 +131,7 @@
             text: 'Wstecz'
             on_release:
                 app.change_screen("kreator")
+                root.manager.transition.direction = 'right'
         Button:
             font_size: 20
             pos: 0, 200
@@ -125,6 +140,7 @@
             text: 'Dalej'
             on_release:
                 app.change_screen("person")
-
+                on_release: root.save_data()
+                root.manager.transition.direction = 'left'
 
 

@@ -10,20 +10,28 @@ from kivy.uix.textinput import TextInput
 class Menu(Screen):
     pass
 
+class Detain(GridLayout, Screen):
+    pass
+
+
+
 
 class Person(GridLayout, Screen):
 
-    # tu kopiuje
     container = ObjectProperty(None)
     data_list = ListProperty([])
 
     # zbieranie listy z inputow
     def save_data(self):
-        for child in reversed(self.container.children):
-            if isinstance(child, TextInput):
-                self.data_list.append(child.text)
 
-        print(self.data_list)
+        if len(self.data_list) < 11:    # preventing list growth (zapobiega powiekszaniu sie listy)
+            for child in reversed(self.container.children):
+                if isinstance(child, TextInput):
+                    self.data_list.append(child.text)
+            print(self.data_list)
+        return self.data_list
+
+
 
 
 class Creator(GridLayout, Screen):
@@ -37,6 +45,12 @@ class Creator(GridLayout, Screen):
             self.list_of_documents.remove(name)
 
         print(self.list_of_documents)
+        return self.list_of_documents
+
+
+
+
+
 
 
 # Load GUI with screen change
@@ -53,6 +67,12 @@ class main(App):
         screen_manager = self.root.ids['screen_manager']
         screen_manager.current = screen_name
 
+    def next_doc(self):
+        if Creator.list_of_documents:
+            lista = iter(Creator.list_of_documents)
+            return next(lista)
+        else:
+            return "menu_screen"
 
 
 main().run()

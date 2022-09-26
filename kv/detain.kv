@@ -1,4 +1,4 @@
-<Person>
+<Detain>
     container: container
     rows: 3
 
@@ -37,34 +37,7 @@
                 cols:2
                 size_hint_y: None
                 spacing: 30
-                imie: imie
 
-                #Imie
-                ItemLabel:
-                    text: "Imię"
-                TextInput:
-                    id: imie
-                    text: ""
-
-                #Nazwisko
-                ItemLabel:
-                    text: "Nazwisko"
-                TextInput:
-                    id: nazwisko
-                    text: ""
-
-                ItemLabel:
-                    text: "Nazwisko\nRodowe"
-                TextInput:
-                    id: rodowe
-                    text: ""
-
-                #Imie Ojca
-                ItemLabel:
-                    text: "Imię Ojca"
-                TextInput:
-                    id: ojciec
-                    text: ""
 
                 #Imie Matki
                 ItemLabel:
@@ -140,7 +113,6 @@
             text: 'Dalej'
 
             on_release:
-                root.save_data()
                 root.manager.transition.direction = 'left'
                 app.change_screen(app.next_doc())
 
